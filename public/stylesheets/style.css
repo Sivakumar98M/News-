@@ -1,0 +1,87 @@
+
+.container img{
+  height:200px;
+}
+
+.p50 {
+  padding: 50px;
+}
+.ellipsis {
+  white-space: nowrap; 
+  width: 260px; 
+  overflow: hidden;
+  text-overflow: ellipsis; 
+ 
+}
+
+.back{
+  position: absolute;
+  top: 55px;
+}
+
+
+.read{
+  height:1380px ;
+  display:block;
+  overflow:hidden;
+}
+
+.searchbar{
+margin-bottom: auto;
+margin-top: auto;
+height: 40px;
+background-color: #353b48;
+border-radius: 30px;
+padding: 2px;
+}
+
+.search_input{
+color: white;
+border: 0;
+outline: 0;
+background: none;
+width: 0;
+caret-color:transparent;
+line-height: 40px;
+transition: width 0.4s linear;
+}
+
+.searchbar:hover > .search_input{
+padding: 0 10px;
+width: 270px;
+caret-color:red;
+transition: width 0.4s linear;
+}
+
+.searchbar:hover > .search_icon{
+background: white;
+color: #e74c3c;
+}
+
+.search_icon{
+height: 35px;
+width: 35px;
+float: right;
+display: flex;
+justify-content: center;
+align-items: center;
+border-radius: 50%;
+color:white;
+text-decoration:none;
+}
+.dropdown-menu a{
+    color: #ffffff;
+}
+.dropdown-menu{
+    left: 86px !important;
+}
+
+.sent_msg div {
+  background: #05728f none repeat scroll 0 0;
+  border-radius: 3px;
+  font-size: 14px;
+  margin: 0;
+  color: #fff;
+  padding: 5px 10px 5px 12px;
+  width: fit-content;
+}

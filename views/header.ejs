@@ -1,0 +1,135 @@
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
+    integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+
+
+<style>
+    .searchbar {
+        margin-bottom: auto;
+        margin-top: auto;
+        height: 40px;
+        background-color: #353b48;
+        border-radius: 30px;
+        padding: 2px;
+    }
+
+    .search_input {
+        color: white;
+        border: 0;
+        outline: 0;
+        background: none;
+        width: 0;
+        caret-color: transparent;
+        line-height: 40px;
+        transition: width 0.4s linear;
+    }
+
+    .searchbar:hover>.search_input {
+        padding: 0 10px;
+        width: 270px;
+        caret-color: red;
+        transition: width 0.4s linear;
+    }
+
+    .searchbar:hover>.search_icon {
+        background: white;
+        color: #e74c3c;
+    }
+
+    .search_icon {
+        height: 35px;
+        width: 35px;
+        float: right;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 50%;
+        color: white;
+        text-decoration: none;
+    }
+
+    .dropdown-menu a {
+        color: #ffffff;
+    }
+
+    .dropdown-menu {
+        left: 86px !important;
+    }
+</style>
+
+
+<div class=" position-fixed top-0 w-100" style="z-index: 3;">
+    <ul class="nav bg-dark p-2">
+        <li class="nav-item">
+            <a class="nav-link active  text-white" aria-current="page" href="/">Home</a>
+        </li>
+        <li class="nav-item">
+            <div class="dropdown">
+                <a href="#" class="dropdown-toggle nav-link  text-white" type="button" id="dropdownMenuButton1"
+                    data-bs-toggle="dropdown" aria-expanded="false">
+                    Category
+                </a>
+                <ul class="dropdown-menu list-inline p-2 bg-dark text-white" id="select" style="width: 1000px;"
+                    aria-labelledby="dropdownMenuButton1">
+                    <li class="list-inline-item"><a class="dropdown-item" onclick="window.location.href='/?category=trending'" category="trending">Trending</a></li>
+                    <li class="list-inline-item"><a class="dropdown-item" onclick="window.location.href='/?category=entertainment'" category="entertainment">Entertainment</a></li>
+                    <li class="list-inline-item"><a class="dropdown-item" onclick="window.location.href='/?category=sports'" category="sports">Sports</a></li>
+                    <li class="list-inline-item"><a class="dropdown-item" onclick="window.location.href='/?category=lifestyle'" category="lifestyle">Lifestyle</a></li>
+                    <li class="list-inline-item"><a class="dropdown-item" onclick="window.location.href='/?category=jobs'" category="jobs">Jobs</a></li>
+                    <li class="list-inline-item"><a class="dropdown-item" onclick="window.location.href='/?category=business'" category="business">Business</a></li>
+                    <li class="list-inline-item"><a class="dropdown-item" onclick="window.location.href='/?category=education'" category="education">Education</a></li>
+                    <li class="list-inline-item"><a class="dropdown-item" onclick="window.location.href='/?category=politics'" category="politics">Politics</a></li>
+                    <li class="list-inline-item"><a class="dropdown-item" onclick="window.location.href='/?category=mutual-funds'" category="mutual-funds">Mutual Funds</a></li>
+
+                </ul>
+            </div>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link  text-white" href="/about">About us</a>
+        </li>
+        <div class="justify-content-end d-flex" style="width: 75%;">
+            <div>
+                <div class="searchbar me-2">
+                    <input class="search_input" type="text" id="search-users" placeholder="Search...">
+                    <div class="search_icon"><i class="fas fa-search"></i></div>
+                </div>
+            </div>
+            <button onclick="location.href='/login'" class="btn btn-primary  me-3">Sign in</button>
+            <button onclick="location.href='/register'" class="btn btn-primary  ">Register</button>
+        </div>
+    </ul>
+</div>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+    integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script>
+    $("#search-users").on("keyup", function () {
+        var value = $(this).val().toLowerCase();
+        $(".user").each(function () {
+            if ($(this).text().toLowerCase().indexOf(value) > -1) {
+                $(this).removeClass("d-none")
+            }
+            else {
+                $(this).addClass("d-none")
+            }
+        })
+    });
+
+    $(function () {
+        $('#select').children().click(function () {
+            let cl = $(this).find('a').attr('category')
+            console.log(cl)
+            // $('. title.category ').hide();
+            $('#newshide').children().each(function () {
+
+                if ($(this).hasClass(cl)) {
+                    $(this).removeClass('d-none');
+                } else {
+                    $(this).addClass('d-none');
+                }
+            })
+        });
+    });
+</script>
